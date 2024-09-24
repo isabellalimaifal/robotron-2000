@@ -105,3 +105,38 @@
     <script src="script.js"></script>
 </body>
 </html>
+//script
+let lista_robos = [
+    './img/robo.icon.amarelo.png',
+    './img/robo.icon.branco.png',
+    './img/robo.icon.preto.png',
+    './img/robo.icon.rosa.png',
+    './img/robo.icon.vermelho.png'
+];
+
+let posicao = 0;
+
+function atualizarImagem() {
+    document.querySelector('.robo').src = lista_robos[posicao];
+}
+
+function proximo() {
+    posicao++;
+    if (posicao >= lista_robos.length) {
+        posicao = 0; 
+    }
+    atualizarImagem();
+}
+
+function anterior() {
+    posicao--;
+    if (posicao < 0) {
+        posicao = lista_robos.length - 1; 
+    }
+    atualizarImagem();
+}
+
+document.getElementById('btnProximo').addEventListener('click', proximo);
+document.getElementById('btnAnterior').addEventListener('click', anterior);
+
+atualizarImagem();
